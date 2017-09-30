@@ -44,6 +44,11 @@ h3 {
   line-height: 1.5em;
 }
 
+h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 header h1, h2 {
   color: #F6F4E6;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.75);
@@ -75,7 +80,7 @@ footer p, a {
  ****************/
 @media screen and (min-width: 600px){
   main {
-    margin: 10% 25%;
+    margin: 10% 10%;
   }
   h3 {
     font-size: 1.5em;
