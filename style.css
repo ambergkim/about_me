@@ -85,7 +85,7 @@ footer p, a {
   h3 {
     font-size: 1.5em;
   }
-  p {
+  p, li {
     font-size: 1.25em;
   }
   header h1 {
@@ -94,13 +94,13 @@ footer p, a {
   header h2 {
     font-size: 1.75em;
   }
+  footer p{
+    font-size: 1em;
+  }
 }
 @media screen and (min-width: 900px) {
-  h3 {
-    font-size: 1.75em;
-  }
-  p {
-    font-size: 1.5em;
+  main{
+    margin: 10% 15%;
   }
   header h1 {
     font-size: 2.5em;
@@ -108,4 +108,16 @@ footer p, a {
   header h2 {
     font-size: 2.25em;
   }
+  .row {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .column {
+    flex: 1 30%;
+    padding: 5%;
+  }
+
 }
