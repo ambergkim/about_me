@@ -166,7 +166,7 @@ var question7Tries = 5;//number of tries left to guess question 7
 
 console.log('question7 ***** ', question7);
 
-var question7 = prompt('Name one state I lived in.');
+var question7 = prompt('Name one state I lived in.').toLowerCase();
 console.log('User answer to question 7 is: ' + question7);
 while (question7Tries > 0) {
   if (statesILivedIn.indexOf(question7) > -1) {
@@ -176,7 +176,7 @@ while (question7Tries > 0) {
     question7Tries = -1; //ends while loop early
   } else {
     question7Tries = question7Tries - 1; //minus question 7 tries.
-    question7 = prompt('Try again. You have ' + question7Tries + ' tries left after this. Name one state I lived in.');
+    question7 = prompt('Try again. You have ' + question7Tries + ' tries left after this. Name one state I lived in.').toLowerCase();
     console.log('User is asked question 7 again. ' + question7Tries + ' left.');
   }
 }
