@@ -15,85 +15,73 @@ console.log('User name is: ' + user);
 alert('Hi, ' + user + '! Nice to meet you! Let\'s test your guessing prowess!');
 console.log('Greeting the new user.');
 
-//random number guessing game.
-var randomNum = Math.floor(Math.random() * 10);
-var userAnswer1 = prompt('Guess a number between 1 and 10');//store user answer
-var usersGuessDisplay = document.getElementById('usersGuessDisplay');
-var userAnswer1Tries = 4;//number of tries
-console.log(user + ' answer is: ' + userAnswer1);
+var quiz = [
+  ['Is my favorite fruit mangoes?', true],
+  ['Is my favorite book "War and Peace?"', false],
+  ['Is my favorite color purple?', false],
+  ['Do I love to hike?', true],
+  ['Is my favorite dessert chocolate ice cream?', true]
+];
 
-console.log('userAnswer1 ***** ', userAnswer1);
-
-do {
-  if (isNaN(userAnswer1)){
-    userAnswer1Tries = userAnswer1Tries - 1;
-    alert('Please enter only numbers. You have ' + userAnswer1Tries + ' tries.');
-    console.log('User Tries Left: ' + userAnswer1Tries + '. User answer is NaN.');
-    userAnswer1 = prompt('Try again. How old am I? Please enter only numbers.');
-  } else if (parseInt(userAnswer1) === randomNum) {
-    alert('Yay! You got it!');
-    usersGuessDisplay.innerHTML = 'You guessed the right number: ' + userAnswer1;
-    console.log('User Tries Left: ' + userAnswer1Tries + '. User guessed correctly after ' + userAnswer1Tries + '.');
-    userPoints = userPoints + 1;
-    randomNum = userAnswer1; // ends while loop early
-  } else if (parseInt(userAnswer1) < randomNum){
-    userAnswer1Tries = userAnswer1Tries - 1;
-    alert('Your guess is low! You have: ' + userAnswer1Tries + ' left.');
-    console.log('User guessed low. User Tries Left: ' + userAnswer1Tries + '. User guessed: ' + userAnswer1 + ' vs. ' + randomNum + '.');
-    userAnswer1 = prompt('Try again. Please enter only numbers.');
+for (var i = 0; i < quiz.length; i++){
+  var userPrompt = prompt(quiz[i][0]).toLowerCase();
+  console.log('User\'s orignal answer: ' + userPrompt + '.');
+  var userAnswer;//initialize user's converted answer.
+  if(userPrompt === 'yes' || userPrompt === 'y'){//convert user answer to boolean
+    userAnswer = true;
+    console.log('User answer is ' + userAnswer + ' vs ' + quiz[i][1] + '. User Points: ' + userPoints + '.');
+  } else if (userPrompt === 'no' || userPrompt === 'n') {
+    userAnswer = false;
+    console.log('User answer is ' + userAnswer + ' vs ' + quiz[i][1] + '. User Points: ' + userPoints + '.');
   } else {
-    userAnswer1Tries = userAnswer1Tries - 1;
-    alert('Your guess is high! You have: ' + userAnswer1Tries + ' left.');
-    console.log('User is totally far off. User Tries Left: ' + userAnswer1Tries + '. User guessed: ' + userAnswer1 + ' vs. ' + randomNum + '.');
-    userAnswer1 = prompt('Try again. Please enter only numbers.');
-  }} while ((userAnswer1 !== randomNum) && (userAnswer1Tries > 1));
-
-if (userAnswer1Tries === 1) {
-  usersGuessDisplay.innerHTML = 'Your last guess: ' + userAnswer1 + '. The right guess: ' + randomNum + '.';
-  alert('You ran out of tries. Your score so far is: ' + userPoints + '/2');
+    userAnswer = null;
+    console.log('User did not enter yes/no or y/n. User Points: ' + userPoints + '.');
+  }
+  if (userAnswer === quiz[i][1]){//check if answer is correct
+    userPoints = userPoints + 1;
+    console.log('User answered correctly: ' + userAnswer + '. User points: ' + userPoints + '.');
+  }
 }
 
-//upon using up those tries OR getting a correct answer, displays a message to the user indicating all of the possible correct answers
+var statesILivedIn = ['washington', 'california', 'north carolina', 'florida']; //list of place i lived in
+var question6Tries = 5;//number of tries left to guess question 7
 
-// var statesILivedIn = ['washington', 'california', 'north carolina', 'florida']; //list of place i lived in
-// var question7Tries = 5;//number of tries left to guess question 7
-//
-// console.log('question7 ***** ', question7);
-//
-// var question7 = prompt('Name one state I lived in.').toLowerCase();
-// console.log('User answer to question 7 is: ' + question7);
-// while (question7Tries > 0) {
-//   if (statesILivedIn.indexOf(question7) > -1) {
-//     alert('Hey! You got one right!');
-//     console.log('User got question7 correctly');
-//     userPoints = userPoints + 1;
-//     question7Tries = -1; //ends while loop early
-//   } else {
-//     question7Tries = question7Tries - 1; //minus question 7 tries.
-//     question7 = prompt('Try again. You have ' + question7Tries + ' tries left after this. Name one state I lived in.').toLowerCase();
-//     console.log('User is asked question 7 again. ' + question7Tries + ' left.');
-//   }
-// }
-//
-// if (question7Tries === 0){
-//   alert('You ran out of tries for quesiton 7. I\'ve lived in Washington, California, North Carolina, and Florida');
-//   console.log('User ran out of tries for question 7. Listed the correct answers.');
-// }
+console.log('question6 ***** ', question6);
+
+var question6 = prompt('Name one state I lived in.').toLowerCase();
+console.log('User answer to question 6 is: ' + question6);
+while (question6Tries > 0) {
+  if (statesILivedIn.indexOf(question6) > -1) {
+    alert('Hey! You got one right!');
+    console.log('User got question6 correctly');
+    userPoints = userPoints + 1;
+    question6Tries = -1; //ends while loop early
+  } else {
+    question6Tries = question6Tries - 1; //minus question 7 tries.
+    question6 = prompt('Try again. You have ' + question6Tries + ' tries left after this. Name one state I lived in.').toLowerCase();
+    console.log('User is asked question 6 again. ' + question6Tries + ' left.');
+  }
+}
+
+if (question6Tries === 0){
+  alert('You ran out of tries for quesiton 6. I\'ve lived in Washington, California, North Carolina, and Florida.');
+  console.log('User ran out of tries for question 6. Listed the correct answers.');
+}
 
 //Congrats and recap
-if (userPoints === 2) {
+if (userPoints === 6) {
   alert('Woohoo! Perfect score! You know me very well!');
   console.log('User got a perfect score!');
-} else if (userPoints === 1) {
+} else if (userPoints < 6 && userPoints >= 4) {
   alert('Great Job! You got ' + userPoints + ' out of 5!');
-  console.log('User did ok. 4-6 points.');
+  console.log('User did ok. 3-5 points.');
 } else {
   alert('Hey, ' + user + ', you got ' + userPoints + '. I know you can do better. Reload the page to try again.');
-  console.log('User got less than 4. Encouraged to try again.');
+  console.log('User got less than 3. Encouraged to try again.');
 }
 
 //update page with user score
 var updateScore = document.getElementById('scoreDisplay'); //get class scoreUpdate
 console.log('grab scoreDisplay ID.');
-updateScore.innerHTML = 'Your Score:' + userPoints + '/2'; //replace "Let's play" with latest score
+updateScore.innerHTML = 'Your Score:' + userPoints + '/6'; //replace "Let's play" with latest score
 console.log('Score displayed on web page.');
