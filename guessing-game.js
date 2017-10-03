@@ -23,6 +23,8 @@ var quiz = [
   ['Is my favorite dessert chocolate ice cream?', true]
 ];
 
+var displayQuestions = document.getElementById('questions');
+
 for (var i = 0; i < quiz.length; i++){
   var userPrompt = prompt(quiz[i][0]).toLowerCase();
   console.log('User\'s orignal answer: ' + userPrompt + '.');
@@ -40,6 +42,15 @@ for (var i = 0; i < quiz.length; i++){
   if (userAnswer === quiz[i][1]){//check if answer is correct
     userPoints = userPoints + 1;
     console.log('User answered correctly: ' + userAnswer + '. User points: ' + userPoints + '.');
+    var p = document.createElement('p');//create paragraph element
+    var t = document.createTextNode((i + 1) + '. ' + quiz[i][0] + ' ' + quiz[i][1]);//create a new text node
+    p.appendChild(t);//attach the text node to the paragraph element
+    displayQuestions.appendChild(p);//attach the paragraph element to the #questions
+  } else {
+    var p = document.createElement('p');//create paragraph element
+    var t = document.createTextNode((i + 1) + '. ' + quiz[i][0] + ' ' + quiz[i][1]);//create a new text node
+    p.appendChild(t);//attach the text node to the paragraph element
+    displayQuestions.appendChild(p);//attach the paragraph element to the #questions
   }
 }
 
@@ -56,10 +67,18 @@ while (question6Tries > 0) {
     console.log('User got question6 correctly');
     userPoints = userPoints + 1;
     question6Tries = -1; //ends while loop early
+    var p = document.createElement('p');//create paragraph element
+    var t = document.createTextNode('6. One state I lived in: ' + question6 + '.');
+    p.appendChild(t);
+    displayQuestions.appendChild(p);
   } else {
     question6Tries = question6Tries - 1; //minus question 7 tries.
     question6 = prompt('Try again. You have ' + question6Tries + ' tries left after this. Name one state I lived in.').toLowerCase();
     console.log('User is asked question 6 again. ' + question6Tries + ' left.');
+    var p = document.createElement('p');//create paragraph element
+    var t = document.createTextNode('6. One state I lived in: ' + question6 + '.');
+    p.appendChild(t);
+    displayQuestions.appendChild(p);
   }
 }
 
@@ -73,7 +92,7 @@ if (userPoints === 6) {
   alert('Woohoo! Perfect score! You know me very well!');
   console.log('User got a perfect score!');
 } else if (userPoints < 6 && userPoints >= 4) {
-  alert('Great Job! You got ' + userPoints + ' out of 5!');
+  alert('Great Job! You got ' + userPoints + ' out of 6!');
   console.log('User did ok. 3-5 points.');
 } else {
   alert('Hey, ' + user + ', you got ' + userPoints + '. I know you can do better. Reload the page to try again.');
