@@ -16,7 +16,7 @@ header {
   text-align: center;
   background: #efefef;
   padding: 10% 5%;
-  background-image: url("images/coffee-glasses.jpg");
+  background-image: url("../images/coffee-glasses.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
