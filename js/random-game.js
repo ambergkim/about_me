@@ -23,7 +23,7 @@ var onPageGreeting = document.getElementById('greeting');
 var userAnswer1Tries = 4;//number of tries
 console.log(user + ' answer is: ' + userAnswer1);
 
-do {
+var checkNumber = function() {
   if (isNaN(userAnswer1)){//checks if user answer is not a number
     userAnswer1Tries = userAnswer1Tries - 1;
     alert('Please enter only numbers. You have ' + userAnswer1Tries + ' tries.');
@@ -46,7 +46,12 @@ do {
     alert('Your guess is high! You have ' + userAnswer1Tries + ' tries left.');
     console.log('User guessed high. User Tries Left: ' + userAnswer1Tries + '. User guessed: ' + userAnswer1 + ' vs. ' + randomNum + '.');
     userAnswer1 = prompt('Try again. Please enter only numbers.');
-  }} while ((userWin !== true) && (userAnswer1Tries > 1));
+  }
+};
+
+do {
+  checkNumber();
+} while ((userWin !== true) && (userAnswer1Tries > 1));
 
 if (userAnswer1Tries === 1) {
   usersGuessDisplay.innerHTML = 'Your last guess: ' + userAnswer1 + '.<br>The right answer: ' + randomNum + '.';
