@@ -12,7 +12,7 @@ console.log('Game Start');
 var user = prompt('What is your name?');
 console.log('User name is: ' + user);
 
-alert('Hi, ' + user + '! Nice to meet you! Let\'s test your guessing prowess! Answer true or false');
+alert('Hi, ' + user + '! Nice to meet you! Let\'s test your guessing prowess! Answer ONLY true or false.');
 console.log('Greeting the new user.');
 
 var quiz = [

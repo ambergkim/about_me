@@ -5,10 +5,10 @@
 
 body {
   background: white;
-  background: -webkit-linear-gradient(top, #F8DE53 , white); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom, #F8DE53, white); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom, #F8DE53, white); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom, #F8DE53 , white); /* Standard syntax */
+  background: -webkit-linear-gradient(top, #F6F4E6 , white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom, #F6F4E6, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom, #F6F4E6, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, #F6F4E6 , white); /* Standard syntax */
 
 }
 
@@ -28,6 +28,8 @@ main {
 
 h1, h2 {
   font-family: 'Bitter', serif;
+  text-shadow: 3px 3px rgb(255, 0, 0);
+  text-shadow: 3px 3px rgba(255, 0, 0, 0.5);
 }
 
 h1 {
@@ -64,6 +66,28 @@ footer {
   text-align: center;
 }
 
+button {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  background: #6C8130;
+  width: 100%;
+  border-style: none;
+  border: 3px solid #F8DE53;
+  padding: 0.75em;
+  margin-top: 0.5em;
+  border-radius: 5px;
+  color: #F6F4E6;
+}
+
+button:hover {
+  background: #F8DE53;
+  color: #112503;
+}
+
+button:active {
+  background: #F6F4E6;
+}
+
 footer p, a {
   color: #F6F4E6;
 }
@@ -94,6 +118,11 @@ footer p, a {
   header h2 {
     font-size: 1.75em;
   }
+  button {
+    width: 50%;
+    font-size: 1.1em;
+    padding: 1em;
+  }
   footer p{
     font-size: 1em;
   }
@@ -107,6 +136,10 @@ footer p, a {
   }
   header h2 {
     font-size: 2.25em;
+  }
+  button {
+    width: 100%;
+
   }
   .row {
     display: -webkit-flex;
