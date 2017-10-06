@@ -62,7 +62,8 @@ console.log('question6 ***** ', question6);
 
 var question6 = prompt('Name one state I lived in.').toLowerCase();
 console.log('User answer to question 6 is: ' + question6);
-while (question6Tries > 0) {
+
+var checkState = function() {
   if (statesILivedIn.indexOf(question6) > -1) {
     alert('Hey! You got one right!');
     console.log('User got question6 correctly');
@@ -81,6 +82,10 @@ while (question6Tries > 0) {
     p.appendChild(t);
     displayQuestions.appendChild(p);
   }
+} ;
+
+while (question6Tries > 0) {
+  checkState();
 }
 
 if (question6Tries === 0){
