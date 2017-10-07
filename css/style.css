@@ -1,6 +1,7 @@
 * {
   color: black;
   font-family: 'Arimo', sans-serif;
+  font-size: 20px;
 }
 
 body {
@@ -54,10 +55,6 @@ h4 {
 header h1, h2 {
   color: #F6F4E6;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.75);
-}
-
-p, li{
-  font-size: 1.25em;
 }
 
 li {
@@ -136,14 +133,16 @@ footer p, a {
     margin: 10% 15%;
   }
   header h1 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
   header h2 {
-    font-size: 2.25em;
+    font-size: 1.75em;
+  }
+  p , li{
+    font-size: 0.9em;
   }
   button {
     width: 100%;
-
   }
   .row {
     display: -webkit-flex;
