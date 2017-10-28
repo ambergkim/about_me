@@ -17,7 +17,7 @@ console.log('Greeting the new user.');
 
 //random number guessing game.
 var randomNum = Math.floor(Math.random() * 10);
-var userAnswer1 = prompt('Guess a number between 1 and 10');//store user answer
+var userAnswer1 = prompt('Guess a number from 0 to 10');//store user answer
 var usersGuessDisplay = document.getElementById('scoreDisplay');
 var onPageGreeting = document.getElementById('greeting');
 var userAnswer1Tries = 4;//number of tries
